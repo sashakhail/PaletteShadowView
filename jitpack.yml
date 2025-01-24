@@ -1,0 +1,14 @@
+jdk:
+  - openjdk17
+
+android:
+  build-tools: 35.0.0
+  compileSdk: 34
+
+build:
+  before_install:
+    - echo "Preparing to build the library"
+  install:
+    - ./gradlew :library:assembleRelease
+  script:
+    - ./gradlew :library:publishToMavenLocal

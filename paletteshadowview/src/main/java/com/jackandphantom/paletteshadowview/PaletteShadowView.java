@@ -21,9 +21,11 @@ import android.support.v7.graphics.Palette;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 
+import com.github.sashakhail.R;
+
 import java.io.IOException;
 import java.lang.ref.WeakReference;
-
+@SuppressWarnings("unchecked")
 
 public class PaletteShadowView extends AppCompatImageView {
 
@@ -79,8 +81,10 @@ public class PaletteShadowView extends AppCompatImageView {
             if (shadowColor != -1){
              mShadowHandler.sendEmptyMessage(MSG);
             }
-            else
-            initShadowColor(mBitmap);
+            else{
+                initShadowColor(mBitmap);
+            }
+
         }
     }
 
