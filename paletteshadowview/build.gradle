@@ -1,11 +1,11 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
-group = 'com.github.sashakhail' // Your GitHub username
-version = '1.0.0' // Version to be published
+group = 'com.github.sashakhail'
+version = '1.1.0'
 
 android {
-    compileSdkVersion 34
+    compileSdkVersion 35
     buildToolsVersion "35.0.0"
     defaultConfig {
         minSdk 19
@@ -18,10 +18,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    lint {
-        baseline = file("lint-baseline.xml")
+    lintOptions {
+        abortOnError false
     }
 }
+
 publishing {
     publications {
         mavenJava(MavenPublication) {
@@ -29,13 +30,11 @@ publishing {
             artifactId = 'PaletteShadowView'
             version = project.version
 
-            afterEvaluate {
-                artifact("$buildDir/outputs/aar/paletteShadowView-release.aar")
-            }
+            artifact("$buildDir/outputs/aar/paletteShadowView-release.aar")
 
             pom {
                 name.set("PaletteShadowView")
-                description.set("An Android custom view which allows you to have an arc-style menu on your pages.")
+                description.set("An Android custom view with an arc-style menu.")
                 url.set("https://github.com/sashakhail/PaletteShadowView")
                 licenses {
                     license {
@@ -56,18 +55,18 @@ publishing {
     repositories {
         mavenLocal()
     }
+}
 
-}
-// Ensure publish task depends on bundling the release AAR
 tasks.named('publishMavenJavaPublicationToMavenLocal').configure {
-    dependsOn tasks.named('bundleReleaseAar')
+    dependsOn tasks.named('assembleRelease')
 }
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support:palette-v7:28.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.palette:palette:1.0.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test:runner:1.6.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 }

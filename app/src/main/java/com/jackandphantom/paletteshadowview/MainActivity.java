@@ -1,9 +1,9 @@
 package com.jackandphantom.paletteshadowview;
-
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends androidx.appcompat.app.AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

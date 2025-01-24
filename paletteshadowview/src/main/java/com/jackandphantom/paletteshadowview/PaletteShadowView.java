@@ -11,23 +11,19 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
+import android.hardware.biometrics.PromptContentItemPlainText;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
-import android.support.annotation.Nullable;
-import android.support.v7.graphics.Palette;
-import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
-
 import com.github.sashakhail.R;
-
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 @SuppressWarnings("unchecked")
 
-public class PaletteShadowView extends AppCompatImageView {
+public class PaletteShadowView extends androidx.appcompat.widget.AppCompatImageView {
 
     private Paint paint = new Paint();
     private Bitmap mBitmap , realBitmap;
@@ -35,7 +31,7 @@ public class PaletteShadowView extends AppCompatImageView {
     private Paint shadowPaint = new Paint();
     private RectF shadowRect;
     private int DEFAULT_PADDING = 40;
-    private Palette mPalette;
+    private androidx.palette.graphics.Palette mPalette;
     private int shadowColor = -1;
     private AsyncTask mAsyncTask;
     private static final int DEFAULT_OFFSET = 5;
@@ -167,7 +163,7 @@ public class PaletteShadowView extends AppCompatImageView {
     }
 
     @Override
-    public void setImageDrawable(@Nullable Drawable drawable) {
+    public void setImageDrawable( Drawable drawable) {
         try {
             getDrawableToBitmap(drawable);
             realBitmap = createRoundedBitmap(mBitmap, roundedRadius);
@@ -189,7 +185,7 @@ public class PaletteShadowView extends AppCompatImageView {
     }
 
     @Override
-    public void setImageURI(@Nullable Uri uri) {
+    public void setImageURI(Uri uri) {
         try {
             mBitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), uri);
             realBitmap = createRoundedBitmap(mBitmap, roundedRadius);
@@ -232,9 +228,9 @@ public class PaletteShadowView extends AppCompatImageView {
 
     }
 
-    Palette.PaletteAsyncListener paletteAsyncListener = new Palette.PaletteAsyncListener() {
+    androidx.palette.graphics.Palette.PaletteAsyncListener paletteAsyncListener=new androidx.palette.graphics.Palette.PaletteAsyncListener() {
         @Override
-        public void onGenerated(@Nullable Palette palette) {
+        public void onGenerated(@androidx.annotation.Nullable androidx.palette.graphics.Palette palette) {
             if (palette != null) {
                 mPalette = palette;
                 if (mPalette.getDominantSwatch() != null) {
@@ -244,10 +240,17 @@ public class PaletteShadowView extends AppCompatImageView {
             }
         }
     };
+//     Palette.PaletteAsyncListener paletteAsyncListener = new Palette.PaletteAsyncListener() {
+//        @Override
+//        public void onGenerated(@Nullable Palette palette) {
+//
+//        }
+//    };
 
     private void initShadowColor(Bitmap bitmap) {
         if (bitmap != null)
-            mAsyncTask = Palette.from(bitmap).generate(paletteAsyncListener);
+        //    mAsyncTask = Palette.from(bitmap).generate(paletteAsyncListener);
+            mAsyncTask= androidx.palette.graphics.Palette.from(bitmap).generate(paletteAsyncListener);
     }
     //Getter setter method for controlling the different variable in order to change properties like radius ,
     // shadow etc.
@@ -391,6 +394,7 @@ public class PaletteShadowView extends AppCompatImageView {
         shadowColor = mPalette.getDominantSwatch().getRgb();
         mShadowHandler.sendEmptyMessage(MSG);
     }
+
 
     @Override
     protected void onDetachedFromWindow() {
