@@ -18,8 +18,6 @@ import android.os.Message;
 import android.provider.MediaStore;
 import android.util.AttributeSet;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresOptIn;
 
 import com.github.sashakhail.R;
 import java.io.IOException;
@@ -240,7 +238,7 @@ public class PaletteShadowView extends androidx.appcompat.widget.AppCompatImageV
 
     androidx.palette.graphics.Palette.PaletteAsyncListener paletteAsyncListener=new androidx.palette.graphics.Palette.PaletteAsyncListener() {
         @Override
-        public void onGenerated(@androidx.annotation.Nullable androidx.palette.graphics.Palette palette) {
+        public void onGenerated(androidx.palette.graphics.Palette palette) {
             if (palette != null) {
                 mPalette = palette;
                 if (mPalette.getDominantSwatch() != null) {
@@ -420,7 +418,7 @@ public class PaletteShadowView extends androidx.appcompat.widget.AppCompatImageV
         }
 
         @Override
-        public void handleMessage(@NonNull Message msg) {
+        public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if (weakReference.get() != null) {
                 PaletteShadowView pletteImage = weakReference.get();
