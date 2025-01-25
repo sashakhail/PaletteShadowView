@@ -22,8 +22,7 @@ import android.util.AttributeSet;
 import com.github.sashakhail.R;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 @SuppressWarnings("unchecked")
 
@@ -46,7 +45,7 @@ public class PaletteShadowView extends androidx.appcompat.widget.AppCompatImageV
     private ShadowHandler mShadowHandler;
     private int roundedRadius = 0;
     private Drawable initialDrawable;
-    Logger logger = Logger.getLogger(PaletteShadowView.class.getName());
+  //  Logger logger = Logger.getLogger(PaletteShadowView.class.getName());
     public PaletteShadowView(Context context) {
         super(context);
     }
@@ -162,8 +161,8 @@ public class PaletteShadowView extends androidx.appcompat.widget.AppCompatImageV
             realBitmap = createRoundedBitmap(mBitmap, roundedRadius);
             initShadowColor(mBitmap);
         }catch (NullPointerException exp) {
-      //      exp.printStackTrace();
-            logger.log(Level.WARNING, exp.getMessage(), exp);
+            exp.printStackTrace();
+      //      logger.log(Level.WARNING, exp.getMessage(), exp);
         }
     }
 
@@ -174,8 +173,8 @@ public class PaletteShadowView extends androidx.appcompat.widget.AppCompatImageV
             realBitmap = createRoundedBitmap(mBitmap, roundedRadius);
             initShadowColor(mBitmap);
         } catch (NullPointerException exp) {
-    //        exp.printStackTrace();
-            logger.log(Level.WARNING, exp.getMessage(), exp);
+            exp.printStackTrace();
+    //        logger.log(Level.WARNING, exp.getMessage(), exp);
         }
     }
 
@@ -186,8 +185,8 @@ public class PaletteShadowView extends androidx.appcompat.widget.AppCompatImageV
             realBitmap = createRoundedBitmap(mBitmap, roundedRadius);
             initShadowColor(bm);
         } catch (NullPointerException exp) {
-      //      exp.printStackTrace();
-            logger.log(Level.WARNING, exp.getMessage(), exp);
+            exp.printStackTrace();
+      //      logger.log(Level.WARNING, exp.getMessage(), exp);
         }
     }
 
@@ -198,8 +197,8 @@ public class PaletteShadowView extends androidx.appcompat.widget.AppCompatImageV
             realBitmap = createRoundedBitmap(mBitmap, roundedRadius);
             initShadowColor(mBitmap);
         } catch (IOException exception){
-       //     exception.printStackTrace();
-            logger.log(Level.WARNING, exception.getMessage(), exception);
+            exception.printStackTrace();
+       //     logger.log(Level.WARNING, exception.getMessage(), exception);
         }
     }
 
