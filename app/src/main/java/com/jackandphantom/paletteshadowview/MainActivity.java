@@ -1,7 +1,6 @@
 package com.jackandphantom.paletteshadowview;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends androidx.appcompat.app.AppCompatActivity {
 
