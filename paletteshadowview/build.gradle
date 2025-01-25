@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
 group = 'com.github.sashakhail'
-version = '1.4.0'
+version = '1.4.1'
 
 android {
     compileSdkVersion 35
@@ -30,11 +30,13 @@ publishing {
             artifactId = 'PaletteShadowView'
             version = project.version
 
-            artifact("$buildDir/outputs/aar/PaletteShadowView-release.aar")
-
+//            artifact("$buildDir/outputs/aar/PaletteShadowView-release.aar")
+            afterEvaluate {
+                artifact("$buildDir/outputs/aar/PaletteShadowView-release.aar")
+            }
             pom {
                 name.set("PaletteShadowView")
-                description.set("An Android custom view with an arc-style menu.")
+                description.set("An Android Imageview with styles.")
                 url.set("https://github.com/sashakhail/PaletteShadowView")
                 licenses {
                     license {
