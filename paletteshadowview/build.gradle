@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
 group = 'com.github.sashakhail'
-version = '1.2.0'
+version = '1.3.0'
 
 android {
     compileSdkVersion 35
@@ -30,7 +30,7 @@ publishing {
             artifactId = 'PaletteShadowView'
             version = project.version
 
-            artifact("$buildDir/outputs/aar/paletteShadowView-release.aar")
+            artifact("$buildDir/outputs/aar/paletteshadowView-release.aar")
 
             pom {
                 name.set("PaletteShadowView")
