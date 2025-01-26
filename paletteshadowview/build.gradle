@@ -1,13 +1,13 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 group = 'com.github.sashakhail'
-version = '1.5.2'
+version = '1.5.3'
 
 android {
-    compileSdk 35
+    compileSdk 34
     defaultConfig {
         minSdk 21
-        targetSdk 35
+        targetSdk 34
     }
 
     buildTypes {
