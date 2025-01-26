@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 group = 'com.github.sashakhail'
-version = '1.5.1'
+version = '1.5.2'
 
 android {
     compileSdk 35
@@ -57,9 +57,9 @@ publishing {
     }
 }
 // Ensure publish task depends on bundling the release AAR
-//tasks.named('publishMavenJavaPublicationToMavenLocal').configure {
-//    dependsOn tasks.named('bundleReleaseAar')
-//}
+tasks.named('publishMavenJavaPublicationToMavenLocal').configure {
+    dependsOn tasks.named('bundleReleaseAar')
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
