@@ -247,12 +247,6 @@ public class PaletteShadowView extends androidx.appcompat.widget.AppCompatImageV
             }
         }
     };
-//     Palette.PaletteAsyncListener paletteAsyncListener = new Palette.PaletteAsyncListener() {
-//        @Override
-//        public void onGenerated(@Nullable Palette palette) {
-//
-//        }
-//    };
 
     private void initShadowColor(Bitmap bitmap) {
         if (bitmap != null)
