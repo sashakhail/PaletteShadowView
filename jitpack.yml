@@ -2,8 +2,9 @@ jdk:
   - openjdk17
 
 android:
-  build-tools: 35.0.0
-  compileSdk: 34
+ # build-tools: 35.0.0
+  compileSdk: 33
+
 
 build:
   before_install:
