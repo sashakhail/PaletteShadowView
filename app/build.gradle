@@ -1,9 +1,13 @@
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android' version '1.8.0'
+    id 'org.jetbrains.kotlin.android' version '1.9.24' apply true
+  //  id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
+}
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
 }
 android {
-    compileSdkVersion 35
+    compileSdk 35
     defaultConfig {
         applicationId "com.jackandphantom.paletteshadowview"
         namespace "com.jackandphantom.paletteshadowview"
@@ -25,11 +29,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.24"
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.0.1'
-//    testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.0.1'
-    testCompileOnly 'org.apiguardian:apiguardian-api:1.0.0'
+//    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.0.1'
+//    testCompileOnly 'org.apiguardian:apiguardian-api:1.0.0'
 }

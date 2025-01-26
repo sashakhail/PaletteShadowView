@@ -1,12 +1,10 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
-
 group = 'com.github.sashakhail'
-version = '1.4.7'
+version = '1.4.8'
 
 android {
-    compileSdkVersion 35
-    buildToolsVersion "35.0.0"
+    compileSdk 35
     defaultConfig {
         minSdk 21
         targetSdk 35
@@ -66,12 +64,8 @@ tasks.named('publishMavenJavaPublicationToMavenLocal').configure {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation('androidx.appcompat:appcompat:1.7.0') {
-        exclude group: 'org.jetbrains.kotlin'
-    }
-    implementation('androidx.palette:palette:1.0.0') {
-        exclude group: 'org.jetbrains.kotlin'
-    }
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.palette:palette:1.0.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test:runner:1.6.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
